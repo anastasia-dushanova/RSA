@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\univer\\Information Protection\\LR3\\LR3\\LR3.csproj": {}
+    "D:\\univer\\Information Protection\\LR3\\LR3\\LR3.csproj": {}
   },
   "projects": {
-    "C:\\univer\\Information Protection\\LR3\\LR3\\LR3.csproj": {
+    "D:\\univer\\Information Protection\\LR3\\LR3\\LR3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\univer\\Information Protection\\LR3\\LR3\\LR3.csproj",
+        "projectUniqueName": "D:\\univer\\Information Protection\\LR3\\LR3\\LR3.csproj",
         "projectName": "LR3",
-        "projectPath": "C:\\univer\\Information Protection\\LR3\\LR3\\LR3.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\univer\\Information Protection\\LR3\\LR3\\obj\\",
+        "projectPath": "D:\\univer\\Information Protection\\LR3\\LR3\\LR3.csproj",
+        "packagesPath": "C:\\Users\\Пользователь\\.nuget\\packages\\",
+        "outputPath": "D:\\univer\\Information Protection\\LR3\\LR3\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Пользователь\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

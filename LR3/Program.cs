@@ -79,17 +79,6 @@ namespace LR3
             int value = rnd.Next(1, 10);
             return value;
         }
-        public static int OpenKey(int a, int g, int p) //открытый ключ
-        {
-            double A = Math.Pow((double)g, (double)a);
-            A = (int)A % p;
-            return (int)A;
-        }
-        public static int SecretKey(int B, int a, int p) //секретный ключ
-        {
-            double K = Math.Pow((double)B, (double)a);
-            K = (int)K % p;
-            return (int)K;
-        }
+        
     }
 }
