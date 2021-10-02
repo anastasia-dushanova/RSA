@@ -11,3 +11,17 @@ C:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.pdb
 C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.dll
 C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.pdb
 C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.genruntimeconfig.cache
+D:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.exe
+D:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.deps.json
+D:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.runtimeconfig.json
+D:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.runtimeconfig.dev.json
+D:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.dll
+D:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.pdb
+D:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.csproj.AssemblyReference.cache
+D:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.GeneratedMSBuildEditorConfig.editorconfig
+D:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.AssemblyInfoInputs.cache
+D:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.AssemblyInfo.cs
+D:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.csproj.CoreCompileInputs.cache
+D:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.dll
+D:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.pdb
+D:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.genruntimeconfig.cache
