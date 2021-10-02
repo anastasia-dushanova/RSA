@@ -15,9 +15,11 @@ namespace LR3
         static void Main(string[] args)
         { //подготовка ключей. Шаг первый
             //var rnd_p = GetRandom();
-            var p = GenPrime(GetRandom()); //простое число
+            //var p = GenPrime(GetRandom()); //простое число
+            var p = GenPrime(10); //простое число
             //var rnd_q = GetRandom();
-            var q = GenPrime(GetRandom()); //простое число
+            //var q = GenPrime(GetRandom()); //простое число
+            var q = GenPrime(10); //простое число
             Console.WriteLine("Простое число p = {0} ", p);
             Console.WriteLine("Простое число q = {0} ", q);
             int n = p * q;
@@ -34,7 +36,7 @@ namespace LR3
             text = text.ToUpper();
             List<string> shifr = Shifr(text, e, n);
             Console.WriteLine();
-            string result = Rashifr(shifr, d, n);
+            Rashifr(shifr, d, n);
             
         }
         public static string Rashifr(List<string> input, long d, long n)
@@ -61,9 +63,9 @@ namespace LR3
 
                 result += arr[index].ToString();
             }
-            Console.WriteLine(result);
-            File.WriteAllText("output.txt", result);
+
             return result;
+
         }
         public static List<string> Shifr(string text, long e, long n) //шифруем
         {
@@ -111,10 +113,12 @@ namespace LR3
             {
                 if (e[i] < f)
                 {
-                    if ((e[i] * d) % f == 1) {
+                    if ((e[i] * d) % f == 1)
+                    {
                         es.Add(e[i]);
                     }
                 }
+                else break;
             }
             var num = e[new Random().Next(0, e.Count)];
             return num;
