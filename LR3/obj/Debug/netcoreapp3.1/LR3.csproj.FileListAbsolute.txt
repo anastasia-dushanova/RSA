@@ -1,0 +1,13 @@
+C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.csprojAssemblyReference.cache
+C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.AssemblyInfoInputs.cache
+C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.AssemblyInfo.cs
+C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.csproj.CoreCompileInputs.cache
+C:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.exe
+C:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.deps.json
+C:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.runtimeconfig.json
+C:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.runtimeconfig.dev.json
+C:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.dll
+C:\univer\Information Protection\LR3\LR3\bin\Debug\netcoreapp3.1\LR3.pdb
+C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.dll
+C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.pdb
+C:\univer\Information Protection\LR3\LR3\obj\Debug\netcoreapp3.1\LR3.genruntimeconfig.cache
