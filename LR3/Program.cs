@@ -16,28 +16,29 @@ namespace LR3
         { //подготовка ключей. Шаг первый
             //var rnd_p = GetRandom();
             //var p = GenPrime(GetRandom()); //простое число
-            var p = GenPrime(10); //простое число
+            var p = 3; //простое число
             //var rnd_q = GetRandom();
             //var q = GenPrime(GetRandom()); //простое число
-            var q = GenPrime(10); //простое число
+            var q = 7; //простое число
             Console.WriteLine("Простое число p = {0} ", p);
             Console.WriteLine("Простое число q = {0} ", q);
             int n = p * q;
             Console.WriteLine("Определим произведение n = {0} ", n);
             long f = (p - 1) * (q - 1);
             Console.WriteLine("Определим функцию Эйлера f = {0} ", f);
-            long d = Calc_d(f);
-            long e = Calc_e(d, f);
-            Console.WriteLine("Определим число d = {0} ", d);
-            Console.WriteLine("Определим число e = {0} ", e);
-            Console.WriteLine("(e,n) = ({0},{1}) - открытый ключ", e, n);
-            Console.WriteLine("(d,n) = ({0},{1}) - закрытый ключ", d, n);
-            string text = File.ReadAllText("input.txt");
-            text = text.ToUpper();
-            List<string> shifr = Shifr(text, e, n);
+            //long e = Calc_e(f);
+            //long d = Calc_d(e, f);
+            //Console.WriteLine("Определим число e = {0} ", e);
+            //Console.WriteLine("Определим число d = {0} ", d);
+            //Console.WriteLine("(e,n) = ({0},{1}) - открытый ключ", e, n);
+            //Console.WriteLine("(d,n) = ({0},{1}) - закрытый ключ", d, n);
+            string input = File.ReadAllText("input.txt");
+            input = input.ToUpper();
+            //List<string> output = Shifr(input, e, n);
             Console.WriteLine();
-            Rashifr(shifr, d, n);
-            
+            //Rashifr(output, d, n);
+            var E = GenPrime(20);
+
         }
         public static string Rashifr(List<string> input, long d, long n)
         {
@@ -53,17 +54,18 @@ namespace LR3
             foreach (string item in input)
             {
                 bi = new BigInteger(Convert.ToDouble(item));
-                bi = BigInteger.Pow(bi, (int)d);
+                bi = BigInteger.ModPow(bi, (int)d, n);
 
-                BigInteger n_ = new BigInteger((int)n);
+                //BigInteger n_ = new BigInteger((int)n);
 
-                bi = bi % n_;
+                //bi = bi % n_;
 
                 int index = Convert.ToInt32(bi.ToString());
 
                 result += arr[index].ToString();
             }
-
+            foreach (char s in result)
+                Console.Write("{0} ", s);
             return result;
 
         }
@@ -88,40 +90,79 @@ namespace LR3
 
                 result.Add(bi.ToString());
             }
+            File.WriteAllText("output.txt", result.ToString());
             foreach(string s in result)
                  Console.Write("{0} ", s);
             return result;
         }
-        public static long Calc_d(long f) //вычисление параметра d взамнопростое с f
+        /// <summary>
+        /// Вычисление параметра <e> 
+        /// 1. простое
+        /// 2. меньше <f> и больше 1
+        /// 3. взаимно простое с <f>
+        /// </summary>
+        /// <param name="f">Функция Эйлера</param>
+        /// <returns></returns>
+        public static long Calc_e(long f) //вычисление параметра e взамнопростое с f
         {
-            long d = f - 1;
-            for(long i=2; i<=f; i++)
+            //var e = GenPrime_e(GetRandom());
+            //List<int> es = new List<int>();
+            /*long e = f - 1;
+            for (int i=2; i<=f; i++)
             {
-                if ((f % i == 0) && (d % i == 0))
+                if (e < f || e>1)
                 {
-                    d--;
-                    i = 1;
-                }
-            }
-            return d;
-        }
-        public static long Calc_e( long d, long f) //вычисление параметра е
-        {
-            var e = GenPrime_e(GetRandom());
-            List<int> es = new List<int>();
-            for (int i = 0; i < e.Count; i++)
-            {
-                if (e[i] < f)
-                {
-                    if ((e[i] * d) % f == 1)
+                    if ((f % i == 0) && (e % i == 0)) //имеют общие делители
                     {
-                        es.Add(e[i]);
+                        e--;
+                        i = 1;
                     }
+                    
                 }
-                else break;
+            }*/
+            
+            List<int> es = new List<int>();
+            for (int i = 0; i <= es.Count; i++)
+            {
+                if (es[i] < f && es[i] > 1)
+                {
+                    if (NOD(es[i], f) == 1) es.Add(es[i]);
+
+                }
             }
-            var num = e[new Random().Next(0, e.Count)];
+            var num = es[new Random().Next(0, es.Count)];
             return num;
+        }
+        public static int NOD(long a, long b)
+        {
+            if (a == b)
+                return (int)a;
+            else
+                if (a > b)
+                return NOD(a - b, b);
+            else
+                return NOD(b - a, a);
+        }
+        /// <summary>
+        /// Вычисление параметра <d> 
+        /// Обратное по модулю функции Эйлера
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="f"></param>
+        /// <returns></returns>
+        public static long Calc_d( long e, long f) 
+        {
+            long d = 10;
+
+            while (true)
+            {
+                if ((d * e) % f == 1)
+                    break;
+                else
+                    d++;
+            }
+
+            return e;
         }
         public static List<int> GenPrime_e(int n) //n-мерный массив из которого выберется e
         {
@@ -150,6 +191,8 @@ namespace LR3
             }
             //var num = array[new Random().Next(0, array.Length)]; //из массива простых чисел рандомно выбираем ОДНО число
             List<int> list = array.ToList();
+            foreach (int s in list)
+                Console.Write("{0} ", s);
             return list;
         }
         public static int GenPrime(int n) //поиск простого числа из n-го количества
@@ -170,12 +213,18 @@ namespace LR3
                     }
                 }
             }
-            for (int i = 2; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
+
+
+            int j = 0;
+                for (int i = 2; i < n; i++)
                 {
-                    if (mass[i]) { array[j] = i; } //получаем массив из простых чисел
+                    if (mass[i]) { array[j] = i; j++; } //получаем массив из простых чисел
                 }
+            
+            for (int i = 0; i < array.Length; i++) 
+            {
+
+                Console.Write(" {0};", array[i]);
             }
             var num = array[new Random().Next(0, array.Length)]; //из массива простых чисел рандомно выбираем ОДНО число
 
