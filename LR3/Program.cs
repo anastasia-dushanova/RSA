@@ -20,6 +20,8 @@ namespace LR3
             //var rnd_q = GetRandom();
             var q = GenPrime(100); //простое число
             //var q = 7; //простое число
+            Console.WriteLine("Алиса хочет отправить сообщение Бобу");
+            Console.WriteLine("Для этого Боб создает два ключа - открытый и закрытый\n");
             Console.WriteLine("Простое число p = {0} ", p);
             Console.WriteLine("Простое число q = {0} ", q);
             int n = p * q;
@@ -29,23 +31,25 @@ namespace LR3
             long e = Calc_e(f);
             long d = Calc_d(e, f);
             Console.WriteLine("Определим число e = {0} ", e);
-            Console.WriteLine("Определим число d = {0} ", d);
-            Console.WriteLine("(e,n) = ({0},{1}) - открытый ключ", e, n);
-            Console.WriteLine("(d,n) = ({0},{1}) - закрытый ключ", d, n);
+            Console.WriteLine("Определим число d = {0} \n", d);
+            Console.WriteLine("Боб -> Алисе (e,n) = ({0},{1}) - открытый ключ", e, n);
+            Console.WriteLine("(d,n) = ({0},{1}) - закрытый ключ\n", d, n);
+            Console.WriteLine("Алиса шифрует сообщение открытым ключом");
+            Console.WriteLine("Алиса -> Боб зашифрованное сообщение");
+            Console.WriteLine("Боб расшифровывает сообщение Алисы с помощью закрытого ключа");
             string input = File.ReadAllText("input.txt");
             input = input.ToUpper();
             List<string> output = Shifr(input, e, n);
             Console.WriteLine();
             Rashifr(output, d, n);
-            
-
+            Console.WriteLine();
         }
         public static string Rashifr(List<string> input, long d, long n)
         {
-            char[] arr = new char[] { ' ', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
+            char[] arr = new char[] { '–', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
                                                 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С',
                                                 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ',
-                                                'Э', 'Ю', 'Я', ' ', '1', '2', '3', '4', '5', '6', '7',
+                                                'Э', 'Ю', 'Я', ' ', '.', ',', '1', '2', '3', '4', '5', '6', '7',
                                                 '8', '9', '0' };
             string result = "";
 
@@ -64,6 +68,7 @@ namespace LR3
 
                 result += arr[index].ToString();
             }
+            Console.WriteLine("\nРасшифрованое сообщение\n");
             foreach (char s in result)
                 Console.Write("{0}", s);
             File.WriteAllText("output.txt", result);
@@ -72,10 +77,10 @@ namespace LR3
         }
         public static List<string> Shifr(string text, long e, long n) //шифруем
         {
-            char[] arr = new char[] { '#', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
+            char[] arr = new char[] { '–', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И',
                                                 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С',
                                                 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ь', 'Ы', 'Ъ',
-                                                'Э', 'Ю', 'Я', ' ', '1', '2', '3', '4', '5', '6', '7',
+                                                'Э', 'Ю', 'Я', ' ', '.', ',', '1', '2', '3', '4', '5', '6', '7',
                                                 '8', '9', '0' };
             BigInteger bi;
             List<string> result = new List<string>();
@@ -89,11 +94,12 @@ namespace LR3
 
                 bi = bi % n_;
 
-                result.Add(bi.ToString());
+                result.Add(bi.ToString()); 
             }
-            File.WriteAllLines("shifr.txt", result);
+            Console.WriteLine("\nЗашифрованое сообщение\n");
             foreach(string s in result)
                  Console.Write("{0} ", s);
+            File.WriteAllLines("shifr.txt", result);
             return result;
         }
         /// <summary>
