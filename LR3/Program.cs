@@ -15,10 +15,10 @@ namespace LR3
         static void Main(string[] args)
         { //подготовка ключей. Шаг первый
             //var rnd_p = GetRandom();
-            var p = GenPrime(GetRandom()); //простое число
+            var p = GenPrime(100); //простое число
             //var p = 3; //простое число
             //var rnd_q = GetRandom();
-            var q = GenPrime(GetRandom()); //простое число
+            var q = GenPrime(100); //простое число
             //var q = 7; //простое число
             Console.WriteLine("Простое число p = {0} ", p);
             Console.WriteLine("Простое число q = {0} ", q);
@@ -112,7 +112,10 @@ namespace LR3
             {
                 if (e[i] < f && e[i] > 1)
                 {
-                    if (NOD(e[i], f) == 1) { es.Add(e[i]); }
+                    if (NOD(e[i], f) == 1) 
+                    { 
+                        es.Add(e[i]); 
+                    }
 
                 }
             }
@@ -164,7 +167,7 @@ namespace LR3
         public static List<int> GenPrime_e(int n) 
         {
             bool[] mass = new bool[n]; //булевый массив
-            int[] array = new int[n];
+            List<int> array = new List<int>();
             for (int i = 0; i < n; i++)
             {
                 mass[i] = true;
@@ -184,12 +187,10 @@ namespace LR3
             {
                 
                 
-                    if (mass[i]) { array[j] = i; j++; } //получаем массив из простых чисел
+                    if (mass[i]) { array.Add(i);  } //получаем массив из простых чисел
 
             }
-            //var num = array[new Random().Next(0, array.Length)]; //из массива простых чисел рандомно выбираем ОДНО число
-            List<int> list = array.ToList();
-            return list;
+            return array;
         }
         /// <summary>
         /// поиск простого числа из n-го количества
@@ -199,7 +200,7 @@ namespace LR3
         public static int GenPrime(int n) 
         {
             bool[] mass = new bool[n]; //булевый массив
-            int[] array = new int[n];
+            List<int> array = new List<int>();
             for (int i = 0; i < n; i++)
             {
                 mass[i] = true;
@@ -217,10 +218,10 @@ namespace LR3
             int j = 0;
                 for (int i = 2; i < n; i++)
                 {
-                    if (mass[i]) { array[j] = i; j++; } //получаем массив из простых чисел
+                    if (mass[i]) { array.Add(i); } //получаем массив из простых чисел
                 }
             
-            var num = array[new Random().Next(0, array.Length)]; //из массива простых чисел рандомно выбираем ОДНО число
+            var num = array[new Random().Next(0, array.Count)]; //из массива простых чисел рандомно выбираем ОДНО число
             return num;
         }
         /// <summary>
